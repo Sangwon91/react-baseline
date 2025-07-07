@@ -102,7 +102,7 @@ npm run preview
 ```
 
 ### 개발 환경
-- Node.js 20+ 권장 (현재 v18.18.0에서도 동작)
+- Node.js 20+ 권장
 - 최신 브라우저 지원
 - VS Code + TypeScript 확장 권장
 
