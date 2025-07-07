@@ -225,3 +225,30 @@ MIT License - 자유롭게 사용, 수정, 배포 가능
 ---
 
 **Made with ❤️ using React, TypeScript, and shadcn UI**
+
+## 🛠️ GitHub Pages 배포 및 경로 문제 해결 내역 (2024-06)
+
+### 문제 상황
+- 이 프로젝트를 GitHub Pages의 `/docs` 폴더로 배포할 때, 정적 리소스(js, css)와 라우팅 경로에서 오류가 발생했습니다.
+- 대표적인 에러: `No routes matched location "/react-baseline/"` 및 일부 컴포넌트 미로딩 현상
+- 원인: Vite와 React Router의 기본 경로가 `/`로 설정되어 있어, 실제 배포 경로(`/react-baseline/`)와 불일치
+
+### 수정 내역
+1. **Vite 설정 변경**
+   - `vite.config.ts`에 `base: '/react-baseline/'` 옵션을 추가
+   - 목적: 빌드시 정적 리소스 경로가 `/react-baseline/`을 기준으로 생성되도록 함
+
+2. **React Router 설정 변경**
+   - `main.tsx`에서 `<BrowserRouter basename="/react-baseline">`로 설정
+   - 목적: 라우터가 실제 배포 경로(`/react-baseline/`)를 기준으로 동작하도록 함
+
+3. **중복 라우터 제거**
+   - `App.tsx`에서 중복된 `<BrowserRouter>`(또는 `<Router>`) 감싸기를 제거
+   - 목적: 라우터 컨텍스트 중복으로 인한 경로 매칭 오류 방지
+
+### 결과 및 이유
+- 위 세 가지 수정으로 GitHub Pages에서 정적 리소스와 라우팅이 정상적으로 동작함을 확인
+- 각 수정의 목적은 실제 서비스 경로(`/react-baseline/`)와 앱 내부 경로 인식이 일치하도록 맞추는 데 있음
+- 중복 라우터 제거는 React Router의 컨텍스트 중첩 문제를 방지하여, "No routes matched location" 에러를 해결함
+
+---
