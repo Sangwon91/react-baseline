@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { useBearStore } from './store/useStore'
+import { Button } from "@/components/ui/button"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,20 +12,23 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-3xl font-bold underline">
+        <h1>
           Hello world!
         </h1>
-        <button onClick={() => setCount(count + 1)} className="bg-blue-500 text-white p-2 rounded-md">
+        <br />
+        <Button onClick={() => setCount(count + 1)}>
           Click me
-        </button>
+        </Button>
         <p>Count: {count}</p>
+        <br />
         <p>Bears: {bears}</p>
-        <button onClick={() => increase(1)} className="bg-blue-500 text-white p-2 rounded-md">
+        <Button onClick={() => increase(1)}>
           Increase
-        </button>
-        <button onClick={() => decrease(1)} className="bg-blue-500 text-white p-2 rounded-md">
+        </Button>
+        <br />
+        <Button onClick={() => decrease(1)}>
           Decrease
-        </button>
+        </Button>
       </div>
     </>
   )
