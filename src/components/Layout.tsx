@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { ModeToggle } from "@/components/mode-toggle"
 import { 
   Home, 
   BookOpen, 
@@ -40,43 +41,47 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-6">
-              <Link to="/">
-                <Button 
-                  variant={isActiveRoute('/') ? "default" : "ghost"}
-                  size="sm"
-                  className="gap-2"
-                >
-                  <Home className="w-4 h-4" />
-                  홈
-                </Button>
-              </Link>
-              <Link to="/blog">
-                <Button 
-                  variant={isActiveRoute('/blog') ? "default" : "ghost"}
-                  size="sm"
-                  className="gap-2"
-                >
-                  <BookOpen className="w-4 h-4" />
-                  블로그
-                </Button>
-              </Link>
-              <Link to="/about">
-                <Button 
-                  variant={isActiveRoute('/about') ? "default" : "ghost"}
-                  size="sm"
-                  className="gap-2"
-                >
-                  <User className="w-4 h-4" />
-                  소개
-                </Button>
-              </Link>
-            </nav>
+            <div className="flex items-center gap-4">
+              <nav className="hidden md:flex items-center gap-6">
+                <Link to="/">
+                  <Button 
+                    variant={isActiveRoute('/') ? "default" : "ghost"}
+                    size="sm"
+                    className="gap-2"
+                  >
+                    <Home className="w-4 h-4" />
+                    홈
+                  </Button>
+                </Link>
+                <Link to="/blog">
+                  <Button 
+                    variant={isActiveRoute('/blog') ? "default" : "ghost"}
+                    size="sm"
+                    className="gap-2"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    블로그
+                  </Button>
+                </Link>
+                <Link to="/about">
+                  <Button 
+                    variant={isActiveRoute('/about') ? "default" : "ghost"}
+                    size="sm"
+                    className="gap-2"
+                  >
+                    <User className="w-4 h-4" />
+                    소개
+                  </Button>
+                </Link>
+              </nav>
 
-            {/* Mobile menu button - 실제 구현시 상태 관리 필요 */}
-            <Button variant="ghost" size="sm" className="md:hidden">
-              <BookOpen className="w-4 h-4" />
-            </Button>
+              <ModeToggle />
+
+              {/* Mobile menu button - 실제 구현시 상태 관리 필요 */}
+              <Button variant="ghost" size="sm" className="md:hidden">
+                <BookOpen className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
