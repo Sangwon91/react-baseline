@@ -1,0 +1,26 @@
+{
+  "api_name": "React Baseline API",
+  "version": "1.0.0",
+  "description": "FastAPI + React 풀스택 템플릿 API",
+  "contact": {
+    "name": "API Support",
+    "url": "https://github.com/your-repo/react-baseline"
+  },
+  "endpoints": {
+    "health": "GET /health",
+    "items": {
+      "list": "GET /api/items",
+      "create": "POST /api/items",
+      "get": "GET /api/items/{id}",
+      "delete": "DELETE /api/items/{id}"
+    },
+    "development": {
+      "seed": "POST /api/dev/seed",
+      "status": "GET /api/dev/status"
+    }
+  },
+  "static_files": {
+    "backend_assets": "/backend-assets/*",
+    "frontend_app": "/*"
+  }
+} 

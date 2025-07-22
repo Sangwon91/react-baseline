@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 *.pyc
 __pycache__
+
+# Production build files (frontend -> backend)
+backend/static/
